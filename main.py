@@ -1,0 +1,54 @@
+import pandas as pd
+from pandas.io.json import json_normalize
+from skyscanner.skyscanner import FlightsCache
+
+API_KEY = 'API-KEY-HERE'
+
+flights_cache_service = FlightsCache(API_KEY)
+
+def getQuotes(origin,destination,date):
+
+    oneWay = True
+    result = flights_cache_service.get_cheapest_quotes(
+        market='US',
+        currency='USD',
+        locale='en-US',
+        originplace=origin,
+        destinationplace=destination,
+        outbounddate=date,
+        inbounddate='').parsed
+
+    places = json_normalize(result['Places'])
+    quotes = json_normalize(result['Quotes'])
+
+    fullQuotes = quotes.merge(places.set_index('PlaceId')[['IataCode']].rename(columns={'IataCode':'OutboundDest'})
+                 , left_on = ['OutboundLeg.DestinationId'],
+                right_index = True, how = 'left' )
+    
+    return fullQuotes[['OutboundDest','OutboundLeg.DepartureDate','MinPrice']]
+
+
+def comparePrices(originList,destinationList,date):
+    
+    df_final = pd.DataFrame()
+    
+    for destination in destinationList:
+        flightLists = []
+        for origin in originList:
+            flightLists.append(getQuotes(origin,destination,date))
+        
+        df = flightLists[0]
+        for i in xrange(1,len(flightLists)):
+           
+            df = df.merge(flightLists[i],on=['OutboundDest','OutboundLeg.DepartureDate']
+              ,suffixes = ('_1','_2'))
+            df['MinPrice'] = df.MinPrice_1 + df.MinPrice_2
+            df = df[['OutboundDest','OutboundLeg.DepartureDate','MinPrice']]
+        df_final = df_final.append(df[['OutboundDest','MinPrice']])
+
+    
+    return df_final.groupby('OutboundDest').min().sort_values('MinPrice').reset_index()
+
+
+#List of origin cities followed by list of country destinations
+comparePrices(['AUS','BOS','DFW'],['CA','MX','UK'],'2017-05-12')
