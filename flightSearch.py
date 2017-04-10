@@ -3,8 +3,11 @@ from pandas.io.json import json_normalize
 from skyscanner.skyscanner import FlightsCache
 from boto.s3.connection import S3Connection
 import os
+import sys
 
 API_KEY = os.environ.get('SKYSCANNER_API_KEY', None)
+print 'API key used:', API_KEY[0]
+sys.stdout.flush()
 
 flights_cache_service = FlightsCache(API_KEY)
 
