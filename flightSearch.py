@@ -14,8 +14,8 @@ flights_cache_service = FlightsCache(API_KEY)
 
 
 def getQuotes(origin,destination,date):
-	print 'get Quotes started'
-	sys.stdout.flush()
+    print 'get Quotes started'
+    sys.stdout.flush()
 
     oneWay = True
     result = flights_cache_service.get_cheapest_quotes(
