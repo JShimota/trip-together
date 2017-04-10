@@ -1,0 +1,103 @@
+<!doctype html>
+<title>Simple tables</title>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+<body>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<div class="container">
+	
+		<div id="homepage" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">trip-together test</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="github" href="https://github.com/nthh/trip-together/">github</a></div>
+            </div>  
+            <div class="panel-body" >
+			<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+			<div class=page>
+			  <h1>Results</h1>
+			  {% for table in tables %}
+				<h2>{{titles[loop.index]}}</h2>
+				{{ table|safe }}
+			  {% endfor %}
+			</div>
+			
+			
+            </div>
+        </div>
+    </div> 
+	
+	
+	
+
+	<!-- 	<div class="bd-example">
+	    <form action="." method="POST">
+		
+		
+		  <div class="form-group">
+			<label for="origin" class="col-xs-2 control-label">Enter Origin(s)</label>
+			
+			<div class="col-xs-10">
+				<input type="text" class="form-control" id="origin" name="origin" aria-describedby="originHelp" placeholder="">
+				<small id="originHelp" class="form-text text-muted">Example:DFW,JFK</small>
+			</div>
+			
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="destination" class="col-xs-2 control-label">Enter Destination(s)</label>
+			
+			<div class="col-xs-10">
+				<input type="text" class="form-control" id="destination" name="destination"  aria-describedby="destinationHelp" placeholder="">
+				<small id="destinationHelp" class="form-text text-muted">Example: MX,CDG</small>
+			</div>
+		  </div>
+		  
+		  <div class="form-group">	
+			<label for="destination" class="col-xs-2 control-label">Enter Date</label>
+			<div class="col-xs-10">
+				<input type="date" class="form-control" id="date" name="date" aria-describedby="dateHelp" placeholder="">
+			</div>	
+		  <!--<small id="dateHelp" class="form-text text-muted">(As YYYY-MM-DD)</small>
+          </div>
+
+        <input type="submit"  class="btn btn-primary" name="findFares" value="Find Lowest Fares">
+		</form>
+		</div> 
+	
+	</div>-->
+	
+   
+   <!--
+    <form action="." method="POST">
+	
+		<a>Enter Origin(s) Example:DFW,JFK<a>
+		<br>
+		<input type="text" name="origin">
+		<br>
+		
+		<a>Enter Destination(s) Example: MX,CDG<a>
+		<br>
+		<input type="text" name="destination">
+		<br>
+		<a>Enter Date (As YYYY-MM-DD)<a>
+		<br>
+        <input type="text" name="date">
+		<br>
+        <input type="submit" name="findFares" value="Find Lowest Fares">
+    </form> -->
+
+</body>
+</html>
