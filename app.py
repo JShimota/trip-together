@@ -14,7 +14,8 @@ def my_form_post():
 	destination = request.form['destination']
 	outbound_date = request.form['date']
 	processed_text = text.upper()
-    return processed_text
+	
+	return processed_text
 
 
 @app.route('/hello/')
