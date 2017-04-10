@@ -1,12 +1,11 @@
 import pandas as pd
 from pandas.io.json import json_normalize
 from skyscanner.skyscanner import FlightsCache
-from boto.s3.connection import S3Connection
 import os
 import sys
 
 API_KEY = os.environ.get('SKYSCANNER_API_KEY', None)
-print 'API key used:', API_KEY[0]
+print 'API key used:', API_KEY[1]
 sys.stdout.flush()
 
 flights_cache_service = FlightsCache(API_KEY)
@@ -16,8 +15,8 @@ flights_cache_service = FlightsCache(API_KEY)
 def getQuotes(origin,destination,date):
     print 'get Quotes started'
     sys.stdout.flush()
-    print 'Start cache service'
-    flights_cache_service = FlightsCache(os.environ.get('SKYSCANNER_API_KEY', None))
+    #print 'Start cache service'
+    #flights_cache_service = FlightsCache(os.environ.get('SKYSCANNER_API_KEY', None))
 
     oneWay = True
     print 'Result for get cheapest quote '
