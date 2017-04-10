@@ -16,7 +16,7 @@ def home_post():
 	destination = request.form['destination']
 	outbound_date = request.form['date']
 	processed_text = origin.upper()
-	return pd.Series(np.random.randn(5), index=['a', 'b', 'c', 'd', 'e'])
+	return pd.Series(np.random.randn(5), index=['a', 'b', 'c', 'd', 'e']).to_frame().to_html()
 
 
 @app.route('/hello/')
