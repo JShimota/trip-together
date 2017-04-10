@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import numpy as np
+import flightSearch
 
 
 app = Flask(__name__)
@@ -16,7 +17,14 @@ def home_post():
 	destination = request.form['destination']
 	outbound_date = request.form['date']
 	processed_text = origin.upper()
-	return pd.Series(np.random.randn(5), index=['a', 'b', 'c', 'd', 'e']).to_frame().to_html()
+	
+	try:
+		df = flightSearch.comparePrices([origin],
+		[destination],
+		outbound_date).to_html(index = False )
+	except:
+		return 'Something went wrong, tell Nathan what you did'
+	return 
 
 
 @app.route('/hello/')
