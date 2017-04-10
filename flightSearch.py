@@ -39,14 +39,12 @@ def getQuotes(origin,destination,date):
     sys.stdout.flush()
     
     try:
-		fullQuotes = quotes.merge(places.set_index('PlaceId')[['IataCode']].rename(columns={'IataCode':'OutboundDest'}), left_on = ['OutboundLeg.DestinationId'],
+        fullQuotes = quotes.merge(places.set_index('PlaceId')[['IataCode']].rename(columns={'IataCode':'OutboundDest'}), left_on = ['OutboundLeg.DestinationId'],
                 right_index = True, how = 'left' )
     except:
         print 'issue with full quotes'
         sys.stdout.flush()
         
-
-    print fullQuotes[0]
 
     sys.stdout.flush()
     return fullQuotes[['OutboundDest','OutboundLeg.DepartureDate','MinPrice']]
