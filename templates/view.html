@@ -27,7 +27,7 @@
 			<div class=page>
 			  <h1>Results</h1>
 			  {% for table in tables %}
-				<h2>{{titles[loop.index]}}</h2>
+				<h2>"Table Title"</h2>
 				{{ table|safe }}
 			  {% endfor %}
 			</div>
@@ -38,64 +38,6 @@
     </div> 
 	
 	
-	
-
-	<!-- 	<div class="bd-example">
-	    <form action="." method="POST">
-		
-		
-		  <div class="form-group">
-			<label for="origin" class="col-xs-2 control-label">Enter Origin(s)</label>
-			
-			<div class="col-xs-10">
-				<input type="text" class="form-control" id="origin" name="origin" aria-describedby="originHelp" placeholder="">
-				<small id="originHelp" class="form-text text-muted">Example:DFW,JFK</small>
-			</div>
-			
-		  </div>
-		  
-		  <div class="form-group">
-			<label for="destination" class="col-xs-2 control-label">Enter Destination(s)</label>
-			
-			<div class="col-xs-10">
-				<input type="text" class="form-control" id="destination" name="destination"  aria-describedby="destinationHelp" placeholder="">
-				<small id="destinationHelp" class="form-text text-muted">Example: MX,CDG</small>
-			</div>
-		  </div>
-		  
-		  <div class="form-group">	
-			<label for="destination" class="col-xs-2 control-label">Enter Date</label>
-			<div class="col-xs-10">
-				<input type="date" class="form-control" id="date" name="date" aria-describedby="dateHelp" placeholder="">
-			</div>	
-		  <!--<small id="dateHelp" class="form-text text-muted">(As YYYY-MM-DD)</small>
-          </div>
-
-        <input type="submit"  class="btn btn-primary" name="findFares" value="Find Lowest Fares">
-		</form>
-		</div> 
-	
-	</div>-->
-	
-   
-   <!--
-    <form action="." method="POST">
-	
-		<a>Enter Origin(s) Example:DFW,JFK<a>
-		<br>
-		<input type="text" name="origin">
-		<br>
-		
-		<a>Enter Destination(s) Example: MX,CDG<a>
-		<br>
-		<input type="text" name="destination">
-		<br>
-		<a>Enter Date (As YYYY-MM-DD)<a>
-		<br>
-        <input type="text" name="date">
-		<br>
-        <input type="submit" name="findFares" value="Find Lowest Fares">
-    </form> -->
 
 </body>
 </html>
