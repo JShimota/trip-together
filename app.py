@@ -20,8 +20,8 @@ def home_post():
 	print 'flightSearch.comparePrices([%s],[%s],%s).to_html(index = False )' % (origin,destination,outbound_date)
 	
 	try:
-		df = flightSearch.comparePrices([origin],
-		[destination],
+		df = flightSearch.comparePrices(origin,
+		destination,
 		outbound_date).to_html(index = False )
 	except:
 		return 'Something went wrong, tell Nathan what you did'
