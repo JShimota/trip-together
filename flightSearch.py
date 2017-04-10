@@ -11,17 +11,6 @@ sys.stdout.flush()
 
 flights_cache_service = FlightsCache(API_KEY)
 
-result = flights_cache_service.get_cheapest_quotes(
-    market='US',
-    currency='USD',
-    locale='en-US',
-    originplace='AUS-sky',
-    destinationplace='MX',
-    outbounddate='2017-06',
-    inbounddate='').parsed
-print 'Carriers'
-print result['Carriers'][0]
-sys.stdout.flush()
 
 
 def getQuotes(origin,destination,date):
@@ -42,7 +31,8 @@ def getQuotes(origin,destination,date):
     fullQuotes = quotes.merge(places.set_index('PlaceId')[['IataCode']].rename(columns={'IataCode':'OutboundDest'})
                  , left_on = ['OutboundLeg.DestinationId'],
                 right_index = True, how = 'left' )
-    
+    print fullQuotes[0]
+	sys.stdout.flush()
     return fullQuotes[['OutboundDest','OutboundLeg.DepartureDate','MinPrice']]
 
 
