@@ -38,6 +38,7 @@ def home_post():
 	except:
 		return 'Something went wrong, tell Nathan what you did'
 	#return df
+	print df
 	return render_template('view.html',tables=[df])
 
 
