@@ -65,7 +65,7 @@ def comparePrices(originList,destinationList,date):
               ,suffixes = ('_1','_2'))
             df['MinPrice'] = df.MinPrice_1 + df.MinPrice_2
             df = df[['OutboundDest','OutboundLeg.DepartureDate','MinPrice']]
-			df['MinPrice'] = df['MinPrice'].map('${:,.2f}'.format)
+            df['MinPrice'] = df['MinPrice'].map('${:,.2f}'.format)
             
         df_final = df_final.append(df[['OutboundDest','MinPrice']])
 
