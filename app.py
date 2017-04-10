@@ -17,7 +17,7 @@ def home_post():
 	destination = request.form['destination'].split(',')
 	outbound_date = request.form['date']
 	
-	print 'flightSearch.comparePrices([%s],[%s],%s).to_html(index = False )' % (origin,destination,outbound_date)
+	print 'flightSearch.comparePrices(%s,%s,%s).to_html(index = False )' % (origin,destination,outbound_date)
 	
 	try:
 		df = flightSearch.comparePrices(origin,
