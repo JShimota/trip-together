@@ -5,11 +5,11 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 @app.route('/')
-def my_form():
+def home():
     return render_template("index.html")
 
 @app.route('/', methods=['POST'])
-def my_form_post():
+def home_post():
 	origin = request.form['origin']
 	destination = request.form['destination']
 	outbound_date = request.form['date']
