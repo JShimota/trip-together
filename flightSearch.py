@@ -9,7 +9,7 @@ print 'API key used:', API_KEY[1]
 sys.stdout.flush()
 
 flights_cache_service = FlightsCache(API_KEY)
-pd.options.display.float_format = '${:,.2f}'.format
+
 
 def getQuotes(origin,destination,date):
     print 'get Quotes started'
@@ -65,6 +65,8 @@ def comparePrices(originList,destinationList,date):
               ,suffixes = ('_1','_2'))
             df['MinPrice'] = df.MinPrice_1 + df.MinPrice_2
             df = df[['OutboundDest','OutboundLeg.DepartureDate','MinPrice']]
+			df['MinPrice'] = df['MinPrice'].map('${:,.2f}'.format)
+            
         df_final = df_final.append(df[['OutboundDest','MinPrice']])
 
     
