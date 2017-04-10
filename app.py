@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import numpy as np
 import flightSearch
+from datetime import datetime as dt
 
 
 app = Flask(__name__)
@@ -15,7 +16,7 @@ def home():
 def home_post():
 	origin = request.form['origin'].split(',')
 	destination = request.form['destination'].split(',')
-	outbound_date = request.form['date']
+	outbound_date = request.form['date'].strftime('%Y-%m-%d')
 	
 	print 'flightSearch.comparePrices(%s,%s,%s).to_html(index = False )' % (origin,destination,outbound_date)
 	
