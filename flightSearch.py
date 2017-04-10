@@ -45,7 +45,7 @@ def getQuotes(origin,destination,date):
         print 'issue with full quotes'
         sys.stdout.flush()
         
-
+    print 'Returning df'
     sys.stdout.flush()
     return fullQuotes[['OutboundDest','OutboundLeg.DepartureDate','MinPrice']]
 
