@@ -13,8 +13,8 @@ def home():
 
 @app.route('/', methods=['POST'])
 def home_post():
-	origin = request.form['origin']
-	destination = request.form['destination']
+	origin = request.form['origin'].split(',')
+	destination = request.form['destination'].split(',')
 	outbound_date = request.form['date']
 	processed_text = origin.upper()
 	
