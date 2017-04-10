@@ -9,8 +9,7 @@ print 'API key used:', API_KEY[1]
 sys.stdout.flush()
 
 flights_cache_service = FlightsCache(API_KEY)
-
-
+pd.options.display.float_format = '${:,.2f}'.format
 
 def getQuotes(origin,destination,date):
     print 'get Quotes started'
