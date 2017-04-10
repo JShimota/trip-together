@@ -10,11 +10,10 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-
-    origin = request.form['origin']
+	origin = request.form['origin']
 	destination = request.form['destination']
 	outbound_date = request.form['date']
-    processed_text = text.upper()
+	processed_text = text.upper()
     return processed_text
 
 
