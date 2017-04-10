@@ -16,10 +16,12 @@ flights_cache_service = FlightsCache(API_KEY)
 def getQuotes(origin,destination,date):
     print 'get Quotes started'
     sys.stdout.flush()
-	
+    print 'Start cache service'
     flights_cache_service = FlightsCache(os.environ.get('SKYSCANNER_API_KEY', None))
 
     oneWay = True
+    print 'Result for get cheapest quote '
+    sys.stdout.flush()
     result = flights_cache_service.get_cheapest_quotes(
         market='US',
         currency='USD',
@@ -28,10 +30,14 @@ def getQuotes(origin,destination,date):
         destinationplace=destination,
         outbounddate=date,
         inbounddate='').parsed
-
+    print 'getting places/quotes'
+    sys.stdout.flush()
     places = json_normalize(result['Places'])
     quotes = json_normalize(result['Quotes'])
-
+    
+    print 'Create full quotes'
+    sys.stdout.flush()
+    sys.stdout.flush()
     fullQuotes = quotes.merge(places.set_index('PlaceId')[['IataCode']].rename(columns={'IataCode':'OutboundDest'})
                  , left_on = ['OutboundLeg.DestinationId'],
                 right_index = True, how = 'left' )
