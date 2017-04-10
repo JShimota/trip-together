@@ -41,8 +41,8 @@ def getQuotes(origin,destination,date):
 
 
 def comparePrices(originList,destinationList,date):
-	print 'compare prices started'
-	sys.stdout.flush()
+    print 'compare prices started'
+    sys.stdout.flush()
     
     df_final = pd.DataFrame()
     
