@@ -44,6 +44,11 @@ def home_post():
 	print df
 	return render_template('view.html',tables=[df])
 
+@app.route('/test/')
+def hello(name=None):
+    return 'test'
+
+
 
 @app.route('/hello/')
 @app.route('/hello/<name>')
