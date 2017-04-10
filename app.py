@@ -24,8 +24,8 @@ def home_post():
 	except:
 		print 'error with form'
 		sys.stdout.flush()
-	origin = request.form['origin'].split(',')
-	destination = request.form['destination'].split(',')
+	origin = request.form['origin'].strip().split(',')
+	destination = request.form['destination'].strip().split(',')
 	outbound_date = request.form['date']#.strftime('%Y-%m-%d')
 		
 	print 'flightSearch.comparePrices(%s,%s,%s).to_html(index = False )' % (origin,destination,outbound_date)
