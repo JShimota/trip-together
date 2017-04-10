@@ -53,4 +53,4 @@ def comparePrices(originList,destinationList,date):
 
 
 #List of origin cities followed by list of country destinations
-comparePrices(['AUS','BOS','DFW'],['CA','MX','UK'],'2017-05-12')
+#comparePrices(['AUS','BOS','DFW'],['CA','MX','UK'],'2017-05-12')
