@@ -13,8 +13,7 @@ def home_post():
 	origin = request.form['origin']
 	destination = request.form['destination']
 	outbound_date = request.form['date']
-	processed_text = text.upper()
-	
+	processed_text = origin.upper()
 	return processed_text
 
 
