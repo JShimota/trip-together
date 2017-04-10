@@ -14,7 +14,6 @@ flights_cache_service = FlightsCache(API_KEY)
 
 def getQuotes(origin,destination,date):
     print 'get Quotes started'
-    sys.stdout.flush()
     #print 'Start cache service'
     #flights_cache_service = FlightsCache(os.environ.get('SKYSCANNER_API_KEY', None))
 
