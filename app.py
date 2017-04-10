@@ -5,9 +5,11 @@ import numpy as np
 import flightSearch
 from datetime import datetime as dt
 import sys
+from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
+Bootstrap(app)
 
 @app.route('/')
 def home():

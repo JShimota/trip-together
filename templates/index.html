@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends "bootstrap/base.html" %}
 <html lang="en">
   <head>
 
@@ -30,7 +31,7 @@
 												
 	
                         <div id="div_id_origin" class="form-group required">
-                            <label for="origin" class="control-label col-md-4  requiredField"> Enter Origin(s)<span class="asteriskField">*</span> </label>
+                            <label for="origin" class="control-label col-md-4  requiredField"> Enter Origin(s) </label>
                             <div class="controls col-md-8 ">
                                 <input class="input-md  textinput textInput form-control" id="origin" maxlength="50" name="origin" placeholder="Example:DFW,JFK" style="margin-bottom: 10px" type="text" />
                             </div>
@@ -38,13 +39,13 @@
 						
 						
                         <div id="div_id_destination" class="form-group required">
-                            <label for="destination" class="control-label col-md-4  requiredField">Enter Destination(s)<span class="asteriskField">*</span> </label>
+                            <label for="destination" class="control-label col-md-4  requiredField">Enter Destination(s) </label>
                             <div class="controls col-md-8 ">
                                 <input class="input-md textinput form-control" id="destination" name="destination" placeholder="Example: MX,CDG" style="margin-bottom: 10px" type="text" />
                             </div>     
                         </div>
                         <div id="div_id_date" class="form-group required">
-                            <label for="date" class="control-label col-md-4  requiredField">Enter Date<span class="asteriskField">*</span> </label>
+                            <label for="date" class="control-label col-md-4  requiredField">Enter Date </label>
                             <div class="controls col-md-8 "> 
                                 <input class="input-md dateinput dateInput form-control" id="date" name="date" placeholder="" style="margin-bottom: 10px" type="date" />
                             </div>
