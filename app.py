@@ -32,9 +32,11 @@ def home_post():
 	sys.stdout.flush()
 	
 	try:
+		df.rename(columns = {'OutboundDest':'Destination','MinPrice':'Combined Price',inplace = True)
 		df = flightSearch.comparePrices(origin,
 		destination,
 		outbound_date).to_html(index = False, classes = 'table table-striped' ).replace('border="1"','border="0"')
+		df = df.rename(columns = {'OutboundDest':'Destination','MinPrice':'Combined Price')
 	except:
 		return 'Something went wrong, tell Nathan what you did'
 	#return df
