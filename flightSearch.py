@@ -11,6 +11,19 @@ sys.stdout.flush()
 
 flights_cache_service = FlightsCache(API_KEY)
 
+result = flights_cache_service.get_cheapest_quotes(
+    market='US',
+    currency='USD',
+    locale='en-US',
+    originplace='AUS-sky',
+    destinationplace='MX',
+    outbounddate='2017-06',
+    inbounddate='').parsed
+print 'Carriers'
+print result['Carriers'][0]
+sys.stdout.flush()
+
+
 def getQuotes(origin,destination,date):
 
     oneWay = True
