@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
+import numpy as np
 
 
 app = Flask(__name__)
