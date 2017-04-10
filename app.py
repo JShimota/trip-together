@@ -37,7 +37,8 @@ def home_post():
 		outbound_date).to_html(index = False, classes = 'table' )
 	except:
 		return 'Something went wrong, tell Nathan what you did'
-	return df
+	#return df
+	return render_template('view.html',tables=[df])
 
 
 @app.route('/hello/')
