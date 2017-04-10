@@ -17,14 +17,14 @@ def home():
 def home_post():
 
 	try:
-		print request.form['origin'],request.form['destination'],request.form['date']
+		print request.form['origin'],request.form['destination'],request.form['date'],type(request.form['date'])
 		sys.stdout.flush()
 	except:
 		print 'error with form'
 		sys.stdout.flush()
 	origin = request.form['origin'].split(',')
 	destination = request.form['destination'].split(',')
-	outbound_date = request.form['date'].strftime('%Y-%m-%d')
+	outbound_date = request.form['date']#.strftime('%Y-%m-%d')
 		
 	print 'flightSearch.comparePrices(%s,%s,%s).to_html(index = False )' % (origin,destination,outbound_date)
 	sys.stdout.flush()
