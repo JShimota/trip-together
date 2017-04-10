@@ -34,7 +34,7 @@ def home_post():
 	try:
 		df = flightSearch.comparePrices(origin,
 		destination,
-		outbound_date).to_html(index = False )
+		outbound_date).to_html(index = False, classes = 'table' )
 	except:
 		return 'Something went wrong, tell Nathan what you did'
 	return df
